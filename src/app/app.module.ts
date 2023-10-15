@@ -8,11 +8,12 @@ import { MaterialModule } from './material.module';
 import { BasicInputComponent } from './components/basic-input/basic-input.component';
 import { AutoCompleteComponent } from './components/auto-complete/auto-complete.component';
 
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { MenuBarComponent } from './components/menu-bar/menu-bar.component';
 import { HomeComponent } from './components/home/home.component';
 import { CardComponent } from './components/card/card.component';
 import { SliderComponent } from './components/slider/slider.component';
+import { TableComponent } from './components/table/table.component';
  
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { SliderComponent } from './components/slider/slider.component';
     HomeComponent,
     CardComponent,
     SliderComponent,
+    TableComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,6 +32,7 @@ import { SliderComponent } from './components/slider/slider.component';
     BrowserAnimationsModule,
     MaterialModule, //material
     ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
