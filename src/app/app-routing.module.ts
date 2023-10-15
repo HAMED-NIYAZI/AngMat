@@ -7,6 +7,7 @@ import { MenuBarComponent } from './components/menu-bar/menu-bar.component';
 import { HomeComponent } from './components/home/home.component';
 import { CardComponent } from './components/card/card.component';
 import { SliderComponent } from './components/slider/slider.component';
+import { TableComponent } from './components/table/table.component';
 
 const routes: Routes = [
 {path:'',component:HomeComponent},
@@ -14,6 +15,7 @@ const routes: Routes = [
 {path:'BasicInputComponent',component:BasicInputComponent},
 {path:'CardComponent',component:CardComponent},
 {path:'SliderComponent',component:SliderComponent},
+{path:'TableComponent',component:TableComponent},
 {path:'**',component: HomeComponent,pathMatch:'full'},
 ];
 

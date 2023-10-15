@@ -14,7 +14,8 @@ import { HomeComponent } from './components/home/home.component';
 import { CardComponent } from './components/card/card.component';
 import { SliderComponent } from './components/slider/slider.component';
 import { TableComponent } from './components/table/table.component';
- 
+import { HttpClientModule } from '@angular/common/http';
+   
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,8 +33,9 @@ import { TableComponent } from './components/table/table.component';
     BrowserAnimationsModule,
     MaterialModule, //material
     ReactiveFormsModule,
-    FormsModule
-  ],
+    FormsModule,
+    HttpClientModule
+   ],
   providers: [],
   bootstrap: [AppComponent]
 })

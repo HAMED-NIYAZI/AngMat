@@ -1,0 +1,81 @@
+{
+  "customer": [
+    {
+      "code": 1,
+      "name": "Test user",
+      "phone": "8999900",
+      "email": "typicode@gmail.com",
+      "status": "Active"
+    },
+    {
+      "code": 2,
+      "name": "Test user",
+      "phone": "8999900",
+      "email": "typicode@gmail.com",
+      "status": "Active"
+    },
+    {
+      "code": 3,
+      "name": "Test user",
+      "phone": "8999900",
+      "email": "typicode@gmail.com",
+      "status": "Active"
+    },
+    {
+      "code": 4,
+      "name": "Test user",
+      "phone": "8999900",
+      "email": "typicode@gmail.com",
+      "status": "Active"
+    },
+    {
+      "code": 5,
+      "name": "Test user",
+      "phone": "8999900",
+      "email": "typicode@gmail.com",
+      "status": "Active"
+    },
+    {
+      "code": 6,
+      "name": "Test user",
+      "phone": "8999900",
+      "email": "typicode@gmail.com",
+      "status": "Active"
+    },
+    {
+      "code": 7,
+      "name": "Test user",
+      "phone": "8999900",
+      "email": "typicode@gmail.com",
+      "status": "Active"
+    },
+    {
+      "code": 8,
+      "name": "Test user",
+      "phone": "8999900",
+      "email": "typicode@gmail.com",
+      "status": "Active"
+    },
+    {
+      "code": 9,
+      "name": "Test user",
+      "phone": "8999900",
+      "email": "typicode@gmail.com",
+      "status": "Active"
+    },
+    {
+      "code": 10,
+      "name": "Test user",
+      "phone": "8999900",
+      "email": "typicode@gmail.com",
+      "status": "Active"
+    },
+    {
+      "code": 11,
+      "name": "Test user",
+      "phone": "8999900",
+      "email": "typicode@gmail.com",
+      "status": "Active"
+    }
+  ]
+}
