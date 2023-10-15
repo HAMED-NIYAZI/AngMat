@@ -11,7 +11,7 @@ export class CustomerService {
   constructor(private http:HttpClient) { }
 
 
-  GetCustomer():Observable<Customer[]>//return type is kind of 
+  GetCustomers():Observable<Customer[]>//return type is kind of 
   //observable and its like query
   {
    return this.http.get<Customer[]>("http://localhost:5000/customer"); 

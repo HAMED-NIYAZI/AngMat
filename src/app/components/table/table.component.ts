@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { MatTableDataSource } from '@angular/material/table';
-import { Customer } from 'src/app/model/Customer';
+ import { Customer } from 'src/app/model/Customer';
 import { CustomerService } from 'src/app/services/customer.service';
 // import { CdkTableModule} from '@angular/cdk/table';
 //        import {DataSource} from '@angular/cdk/table';
 //        import {MatTableModule} from '@angular/material/table';
+import {MatTableModule} from '@angular/material/table';
 
 @Component({
   selector: 'app-table',
@@ -19,7 +19,6 @@ columnsToDisplay:string[]=['code','name','phone','email','status','action'];
   constructor (private service:CustomerService){
    }
   ngOnInit(): void {
-    debugger;
 
    this.GetCustomers();
   }
@@ -29,7 +28,7 @@ columnsToDisplay:string[]=['code','name','phone','email','status','action'];
 
  
 
-    this.service.GetCustomer().subscribe(res=>
+    this.service.GetCustomers().subscribe(res=>
       {
         this.customerlist=<Customer[]>res;
         console.log( 'res===============');
@@ -37,8 +36,8 @@ columnsToDisplay:string[]=['code','name','phone','email','status','action'];
         console.log( 'customerlist===============');
         console.log( this.customerlist);
  
-        this.dataSource=new MatTableDataSource<Customer>(this.customerlist);
-        
+       // this.dataSource=new MatTableDataSource<Customer>(this.customerlist);
+       this.dataSource=this.customerlist;
         console.log( 'dataSource===============');
         
         console.log( this.dataSource);
