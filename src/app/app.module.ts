@@ -11,6 +11,8 @@ import { AutoCompleteComponent } from './components/auto-complete/auto-complete.
 import {ReactiveFormsModule} from '@angular/forms';
 import { MenuBarComponent } from './components/menu-bar/menu-bar.component';
 import { HomeComponent } from './components/home/home.component';
+import { CardComponent } from './components/card/card.component';
+import { SliderComponent } from './components/slider/slider.component';
  
 @NgModule({
   declarations: [
@@ -19,6 +21,8 @@ import { HomeComponent } from './components/home/home.component';
     AutoCompleteComponent,
     MenuBarComponent,
     HomeComponent,
+    CardComponent,
+    SliderComponent,
   ],
   imports: [
     BrowserModule,

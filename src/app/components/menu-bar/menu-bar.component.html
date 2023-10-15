@@ -1,10 +1,107 @@
 <mat-toolbar color="primary" class="mat-elevation-z12">
-    <button mat-icon-button routerLink="">
-        <mat-icon>home</mat-icon>
+    <button mat-icon-button  (click)="drawer.toggle()">
+        <mat-icon>menu</mat-icon>
     </button>
     <span>Material UI App</span>
-    <button mat-button routerLink="">Home</button>
-    <button mat-button routerLink="BasicInputComponent">Input</button>
-    <button mat-button routerLink="AutoCompleteComponent">AutoComplete</button>
+    <!-- <span class="example-spacer">
+
+    </span> -->
+    <button mat-button routerLink="" routerLinkActive="activewhite">Home</button>
+    <button mat-button [matMenuTriggerFor]="lv1master" routerLinkActive="active">master</button>
+    <mat-menu #lv1master="matMenu">
+        <button [matMenuTriggerFor]="company" mat-menu-item>Company</button>
+        <button [matMenuTriggerFor]="customer" mat-menu-item>Customer</button>
+        <button [matMenuTriggerFor]="product" mat-menu-item>Product</button>
+    </mat-menu>
+
+    <mat-menu #company="matMenu">
+        <button mat-menu-item>Term</button>
+        <button mat-menu-item>Tax</button>
+        <button mat-menu-item>Currency</button>
+    </mat-menu>
+
+    <mat-menu #customer="matMenu">
+        <button mat-menu-item>Term</button>
+        <button mat-menu-item>Tax</button>
+        <button mat-menu-item>Currency</button>
+    </mat-menu>
+
+
+    <mat-menu #product="matMenu">
+        <button mat-menu-item>Term</button>
+        <button mat-menu-item>Tax</button>
+        <button mat-menu-item>Currency</button>
+    </mat-menu>
+
+
+    <button mat-button routerLink="BasicInputComponent" routerLinkActive="active">Input</button>
+    <button mat-button routerLink="AutoCompleteComponent" routerLinkActive="active">AutoComplete</button>
+    <button mat-flat-button color="accent">Sign Up</button>
+    <button mat-icon-button>
+        <mat-icon matBadge="15" matBadgeColor="warn">notifications</mat-icon>
+
+    </button>
+
+
+
 
 </mat-toolbar>
+
+<mat-drawer-container>
+    <mat-drawer #drawer opened="true" mode="side" position="start"> 
+
+        <mat-nav-list>
+            <mat-list-item>
+                <button mat-button routerLink="/CardComponent">
+                    <mat-icon>
+                        dashboard
+                    </mat-icon>Dashboard
+                </button>
+            </mat-list-item>
+
+            <mat-list-item>
+                <button mat-button routerLink="/SliderComponent">
+                    <mat-icon>
+                        home
+                    </mat-icon>Slider
+                </button>
+            </mat-list-item>
+
+            <mat-list-item>
+                <button mat-button>
+                    <mat-icon>
+                        settings
+                    </mat-icon>Setting
+                </button>
+            </mat-list-item>
+
+            <mat-list-item>
+                <button mat-button>
+                    <mat-icon>
+                        help
+                    </mat-icon>Help
+                </button>
+            </mat-list-item>
+
+            <mat-list-item>
+                <button mat-button>
+                    <mat-icon>
+                        analytics
+                    </mat-icon>Analytics
+                </button>
+            </mat-list-item>
+
+
+ 
+        </mat-nav-list>
+
+    </mat-drawer>
+
+    <mat-drawer-content>
+        <div style="text-align: center;min-height: 93vh !important;">
+            <router-outlet> </router-outlet>
+        
+        </div>
+    </mat-drawer-content>
+
+</mat-drawer-container>

@@ -1,0 +1,24 @@
+<mat-slider min="1" max="100" step="1" value="0">
+
+    <input matSliderThumb [(value)]="sliderValue" >
+
+</mat-slider> {{sliderValue}}
+<br/>
+<br/>
+<!-- 
+ <mat-slider min="0" max="100">
+    <input matSliderStartThumb [value]="min">
+    <input  matSliderEndThumb [value]="max">
+</mat-slider>
+{{min}} /{{max}}  -->
+
+<!-- range slider -->
+<mat-slider min="0" max="100" style="width: 250px;"  >
+    <input value="{{minvalue}}" matSliderStartThumb [(value)]="minvalue">
+    <input value="{{maxvalue}}" matSliderEndThumb [(value)]="maxvalue">
+</mat-slider>
+
+  {{minvalue}} /{{maxvalue}} 
+
+
+
