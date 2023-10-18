@@ -8,6 +8,7 @@ import { HomeComponent } from './components/home/home.component';
 import { CardComponent } from './components/card/card.component';
 import { SliderComponent } from './components/slider/slider.component';
 import { TableComponent } from './components/table/table.component';
+import { FormdesignComponentComponent } from './components/formdesign-component/formdesign-component.component';
 
 const routes: Routes = [
 {path:'',component:HomeComponent},
@@ -16,6 +17,8 @@ const routes: Routes = [
 {path:'CardComponent',component:CardComponent},
 {path:'SliderComponent',component:SliderComponent},
 {path:'TableComponent',component:TableComponent},
+{path:'FormdesignComponentComponent',component:FormdesignComponentComponent},
+
 {path:'**',component: HomeComponent,pathMatch:'full'},
 ];
 
