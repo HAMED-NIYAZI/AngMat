@@ -9,6 +9,7 @@ import { CardComponent } from './components/card/card.component';
 import { SliderComponent } from './components/slider/slider.component';
 import { TableComponent } from './components/table/table.component';
 import { FormdesignComponentComponent } from './components/formdesign-component/formdesign-component.component';
+import { TreeMultipleComponent } from './components/tree-multiple/tree-multiple.component';
 
 const routes: Routes = [
 {path:'',component:HomeComponent},
@@ -18,6 +19,7 @@ const routes: Routes = [
 {path:'SliderComponent',component:SliderComponent},
 {path:'TableComponent',component:TableComponent},
 {path:'FormdesignComponentComponent',component:FormdesignComponentComponent},
+{path:'TreeMultipleComponent',component:TreeMultipleComponent},
 
 {path:'**',component: HomeComponent,pathMatch:'full'},
 ];

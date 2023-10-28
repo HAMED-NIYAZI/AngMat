@@ -16,6 +16,7 @@ import { SliderComponent } from './components/slider/slider.component';
 import { TableComponent } from './components/table/table.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormdesignComponentComponent } from './components/formdesign-component/formdesign-component.component';
+import { TreeMultipleComponent } from './components/tree-multiple/tree-multiple.component';
    
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { FormdesignComponentComponent } from './components/formdesign-component/
     SliderComponent,
     TableComponent,
     FormdesignComponentComponent,
+    TreeMultipleComponent,
   ],
   imports: [
     BrowserModule,
