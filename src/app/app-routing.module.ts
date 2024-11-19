@@ -10,6 +10,7 @@ import { SliderComponent } from './components/slider/slider.component';
 import { TableComponent } from './components/table/table.component';
 import { FormdesignComponentComponent } from './components/formdesign-component/formdesign-component.component';
 import { TreeMultipleComponent } from './components/tree-multiple/tree-multiple.component';
+import { RegisterUserComponent } from './components/register-user/register-user.component';
 
 const routes: Routes = [
 {path:'',component:HomeComponent},
@@ -20,7 +21,10 @@ const routes: Routes = [
 {path:'TableComponent',component:TableComponent},
 {path:'FormdesignComponentComponent',component:FormdesignComponentComponent},
 {path:'TreeMultipleComponent',component:TreeMultipleComponent},
+{path:'RegisterUserComponent',component:RegisterUserComponent},
 
+
+ 
 {path:'**',component: HomeComponent,pathMatch:'full'},
 ];
 

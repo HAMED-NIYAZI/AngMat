@@ -1,6 +1,7 @@
 import { FlatTreeControl } from '@angular/cdk/tree';
 import { Component, OnInit } from '@angular/core';
 import { MatTreeFlatDataSource, MatTreeFlattener } from '@angular/material/tree';
+import { Observable } from 'rxjs';
 
 /**
  * Food data with nested structure.
@@ -11,6 +12,14 @@ interface Tree {
   name: string;
   isChecked: boolean,
   children?: Tree[];
+}
+
+interface TreeList {
+  id: string;
+  name: string;
+  sortingNumber?: string,
+  isChecked: boolean,
+  parent?: string;
 }
 
 
@@ -24,13 +33,34 @@ interface ExampleFlatNode {
 }
 
 
+///
+
+
+let lists: TreeList[] = [
+  { id: "1", name: "n1", parent: "2", isChecked: false },
+  { id: "2", name: "n2", parent: "", isChecked: false },
+  { id: "3", name: "n3", parent: "5", isChecked: false },
+  { id: "4", name: "n4", parent: "2", isChecked: false },
+  { id: "5", name: "n5", parent: "", isChecked: false },
+  { id: "6", name: "n6", parent: "2", isChecked: false },
+  { id: "7", name: "n7", parent: "6", isChecked: false },
+  { id: "8", name: "n8", parent: "6", isChecked: false }
+];
+
+/*
+var result = unflatten(items);
+document.body.innerHTML = "<pre>" + (JSON.stringify(result, null, " "))
+*/
+///
+
+
 let TREE_DATA: Tree[] = [
   {
     id: '1',
     name: 'وزارت بهداشت',
     isChecked: false,
     children: [
-      { id: '2', name: 'دانشکده ها', isChecked: false },
+      { id: '2', name: 'دانشکده ها', isChecked: true },
       { id: '31', name: 'مراکز بهداشت', isChecked: false },
       {
         id: '541', name: 'بیمارستان های خصوصی ', isChecked: false,
@@ -108,11 +138,10 @@ export class TreeMultipleComponent implements OnInit {
   treeFlattener = new MatTreeFlattener(
     this._transformer, node => node.level, node => node.expandable, node => node.children);
 
-  dataSource = new MatTreeFlatDataSource(this.treeControl, this.treeFlattener);
+  dataSource   = new MatTreeFlatDataSource(this.treeControl, this.treeFlattener);
 
   constructor() {
   }
-
 
   hasChild = (_: number, node: ExampleFlatNode) => node.expandable;
 
@@ -121,124 +150,73 @@ export class TreeMultipleComponent implements OnInit {
     // this.TREE_DATA_Node = TREE_DATA;
   }
 
-
-
-
-  updatePropertyById(id: string, data: Tree[]) {
-    data.forEach(e => {
-
-      if (e.id == id) {
-        e.isChecked = !e.isChecked;
-      }
-      if (e.children !== undefined && e.children.length > 0) {
-        e.children.forEach(ch => {
-          // this.updatePropertyById(id, ch.children);
-        });
-
-
-        for (let i = 0; i < e.children.length; i++) {
-
-
-
-
-        }
-      }
-      return data;
-    });
-  }
-
-
   onChangeCheckBox(id: string): Tree {
-
-    // let node = this.dataSource.data.find(x => x.id == id);
-
-    // if (node?.id == id) {
-
-    //   let tempDate = node;
-
-    //   let fidedIndex = this.dataSource.data.indexOf(node);
-    //   alert('fidedIndex2 : ' + fidedIndex);
-
-    //   this.dataSource.data[fidedIndex].isChecked = !node.isChecked;
-    //   alert('dataSource : ' + this.dataSource.data[fidedIndex].id + '----' + this.dataSource.data[fidedIndex].name + '---' + this.dataSource.data[fidedIndex].isChecked);
-
-    //   alert(node.name + '/' + node.isChecked + '/' + node.id);
-
-    //   return node;
-
-    // } else {
-      let ee = this.SearchForIdInNodes(<Tree[]>this.dataSource.data, id);
-      alert(ee.name);
-
-      return ee;
-    // }
-
+    let element = this.SearchForIdInNodes(<Tree[]>this.dataSource.data, id);
+    alert(element?.name);
+    
+    console.log(this.dataSource.data);
+    return element;
   }
-
 
   SearchForIdInNodes(Nodes: Tree[], id: string): Tree {
-
-
     for (let i = 0; i < Nodes.length; i++) {
-      let e = Nodes[i];
-      if (e.id == id) {
-
-
-        let fidedIndex2 = this.dataSource.data.indexOf(e);
-
-        alert('fidedIndex2  SearchForIdInNodes : ' + fidedIndex2);
-
-
-        this.dataSource.data[fidedIndex2].isChecked = !e.isChecked;
-
-        alert('dataSource  SearchForIdInNodes : ' + this.dataSource.data[fidedIndex2].id + '----' + this.dataSource.data[fidedIndex2].name + '---' + this.dataSource.data[fidedIndex2].isChecked);
-
-        alert(e.name + '/' + e.isChecked + '/' + e.id + 'from SearchForIdInNodes');
-
-        return e;
+      let node = Nodes[i];
+      if (node.id == id) {
+        node.isChecked = !node.isChecked;
+        return node;
+      } else if (node.children) {
+        let result = this.SearchForIdInNodes(node.children, id);
+        if (result) {
+          return result;
+        }
       }
-
-
-      
-if (e.children) {
-        this.SearchForIdInNodes(<Tree[]>e.children, id);
-      }
-      let t!: Tree;
-      return t;
-
-
     }
-
-    // Nodes.forEach((e) => {
-    //   if (e.id == id) {
-
-    //     e.isChecked = !e.isChecked;
-
-    //     let fidedIndex2 = this.dataSource.data.indexOf(e);
-
-    //     alert('fidedIndex2  SearchForIdInNodes : '+fidedIndex2);
-
-
-    //     this.dataSource.data[fidedIndex2].isChecked = !e.isChecked;
-
-    //      alert('dataSource  SearchForIdInNodes : '+this.dataSource.data[fidedIndex2].id +'----'+this.dataSource.data[fidedIndex2].name+'---'+this.dataSource.data[fidedIndex2].isChecked);
-
-    //     alert(e.name + '/' + e.isChecked + '/' + e.id +'from SearchForIdInNodes' );
-
-    //     return e;
-    //   }
-
-    //   if (e.children) {
-    //     this.SearchForIdInNodes(<Tree[]>e.children, id);
-    //   }
-    //   let t!: Tree;
-    //   return t;
-    // });
-
     let t!: Tree;
     return t;
   }
 
+  // //write a methods that converts list to tree
+  // public async Task<List<OrganizationTree>> GetOrganizationTree()
+  // {
+  //   var data = await organizationRepository.GetAll();
+  //   var roots = data.Where(d => d.ParentId == null).ToList();
+  //   var datatemp = data.ToList();
+  //   datatemp = datatemp.Where(d => d.ParentId != null).ToList();
+
+
+  //   var listTree = new List<OrganizationTree>();
+
+  //   foreach (var root in roots)
+  //   {
+  //     var mappedroot = mapper.Map<OrganizationTree>(root);
+  //     var children = mapper.Map<List<OrganizationTree>>(datatemp.Where(d => d.ParentId == root.Id).ToList());
+  //     listTree.Add(mappedroot);
+  //     AddChildren(mappedroot,children);
+  //   }
+
+  //  return listTree;
+  // }
+
+
+  //  AddChildren(  mappedroot:Tree[],   children:Tree[]):Tree[]
+  //   {
+
+  //     children.ForEach(e=> mappedroot.Children.Add(<Tree>e));
+
+  //             foreach (var item in children)
+  //             children.forEach(item =>             {
+  //               var mappedrootinside = mapper.Map<OrganizationTree>(item);
+  //               var childreninside = mapper.Map<List<OrganizationTree>>(datatemp.Where(d => d.ParentId == item.Id).ToList());
+
+  //               AddChildren(mappedrootinside, childreninside);
+  //             });
+
+  //             return listTree;
+  //   }
+
+  check(){
+    this.dataSource.data[0].isChecked=true;
+  }
 }
 
 

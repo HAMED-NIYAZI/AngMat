@@ -17,6 +17,7 @@ import { TableComponent } from './components/table/table.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormdesignComponentComponent } from './components/formdesign-component/formdesign-component.component';
 import { TreeMultipleComponent } from './components/tree-multiple/tree-multiple.component';
+import { RegisterUserComponent } from './components/register-user/register-user.component';
    
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { TreeMultipleComponent } from './components/tree-multiple/tree-multiple.
     TableComponent,
     FormdesignComponentComponent,
     TreeMultipleComponent,
+    RegisterUserComponent,
   ],
   imports: [
     BrowserModule,

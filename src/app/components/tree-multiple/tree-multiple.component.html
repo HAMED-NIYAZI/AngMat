@@ -5,11 +5,11 @@
       <button mat-icon-button disabled></button>
       <mat-checkbox
         class="checklist-leaf-node marginLeft"
-        [checked]="node.isChecked"
+        [(ngModel)]="node.isChecked"
         (change)="onChangeCheckBox(node.id)"  
       >
       </mat-checkbox>
-      {{node.name}}/{{node.isChecked ? true : false}}
+      {{node.name}} {{node.isChecked ? ' / Checked' : ''}}
     </mat-tree-node>
     <!-- This is the tree node template for expandable nodes -->
     <mat-tree-node *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding>
@@ -24,11 +24,11 @@
       </button>
       <mat-checkbox
         class="checklist-leaf-node marginLeft"
-        [checked]="node.isChecked"
+         [(ngModel)]="node.isChecked"
         (change)="onChangeCheckBox(node.id)"     
          >
       </mat-checkbox>
-      {{node.name}}/{{node.isChecked ? true : false}}
+      {{node.name}} {{node.isChecked ? ' / Checked' : ''}}
 
     </mat-tree-node>
   </mat-tree>
@@ -44,11 +44,14 @@
        <p *ngFor="let item of this.dataSource.data[0].children">
         {{item.id}} --- {{item.name}} ---- {{item.isChecked}}
         </p>
-
+ 
+  
 
         <p *ngFor="let item of this.dataSource.data[1].children">
             {{item.id}} --- {{item.name}} ---- {{item.isChecked}}
             </p>
  
+
+            <button (click)="check()">ok</button>
    
   
