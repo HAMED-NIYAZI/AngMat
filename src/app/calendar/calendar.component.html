@@ -1,0 +1,25 @@
+<div class="calendar-container">
+    <mat-form-field>
+      <input matInput [(ngModel)]="selectedDate" (dateChange)="onDateChange($event)">
+    </mat-form-field>
+  
+    <div *ngFor="let appointment of appointments" cdkDrag [cdkDragData]="appointment">
+      {{ appointment.title }} ({{ appointment.start | date:'short' }} - {{ appointment.end | date:'short' }})
+    </div>
+  </div>
+  
+  <button (click)="addAppointment()">Add Appointment</button>
+  
+
+  <form>
+    <mat-form-field>
+      <input matInput [(ngModel)]="selectedDate" (dateChange)="onDateChange($event)">
+    </mat-form-field>
+  </form>
+
+  
+
+  <div *ngFor="let appointment of appointments" cdkDrag [cdkDragData]="appointment">
+    <mat-icon>drag_indicator</mat-icon>
+    {{ appointment.title }} ({{ appointment.start | date:'short' }} - {{ appointment.end | date:'short' }})
+  </div>

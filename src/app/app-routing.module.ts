@@ -11,6 +11,7 @@ import { TableComponent } from './components/table/table.component';
 import { FormdesignComponentComponent } from './components/formdesign-component/formdesign-component.component';
 import { TreeMultipleComponent } from './components/tree-multiple/tree-multiple.component';
 import { RegisterUserComponent } from './components/register-user/register-user.component';
+import { CalendarComponent } from './calendar/calendar.component';
 
 const routes: Routes = [
 {path:'',component:HomeComponent},
@@ -22,6 +23,7 @@ const routes: Routes = [
 {path:'FormdesignComponentComponent',component:FormdesignComponentComponent},
 {path:'TreeMultipleComponent',component:TreeMultipleComponent},
 {path:'RegisterUserComponent',component:RegisterUserComponent},
+{path:'CalendarComponent',component:CalendarComponent},
 
 
  
